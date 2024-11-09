@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Formulario Persona</title>
+    <style>
+        h2 {
+            color: pink;
+        }
+        input[type="submit"] {
+            background-color: pink;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff66b2;
+        }
+    </style>
+    <script>
+        function validarFormularioPersona() {
+            var nombre = document.getElementById("txt_nombre").value;
+            var ape_pa = document.getElementById("txt_ape_pa").value;
+            var ape_ma = document.getElementById("txt_ape_ma").value;
+            var edad = document.getElementById("txt_edad").value;
+            var fecha_nac = document.getElementById("txt_fecha_nac").value;
+            var sexo = document.getElementById("txt_sexo").value;
+
+            if (nombre === "" || ape_pa === "" || ape_ma === "" || edad === "" || fecha_nac === "" || sexo === "") {
+                alert("Ingrese todos los datos.");
+                return false;
+            }
+
+            if (isNaN(edad) || parseInt(edad) <= 0) {
+                alert("Ingrese una edad válida.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Formulario de Persona</h2>
+    <form action="guardar_persona.php" method="POST" onsubmit="return validarFormularioPersona();">
+        <label for="txt_nombre">Nombre:</label>
+        <input type="text" id="txt_nombre" name="txt_nombre" placeholder="NOMBRE" /><br><br>
+
+        <label for="txt_ape_pa">Apellido Paterno:</label>
+        <input type="text" id="txt_ape_pa" name="txt_ape_pa" placeholder="APELLIDO PATERNO" /><br><br>
+
+        <label for="txt_ape_ma">Apellido Materno:</label>
+        <input type="text" id="txt_ape_ma" name="txt_ape_ma" placeholder="APELLIDO MATERNO" /><br><br>
+
+        <label for="txt_edad">Edad:</label>
+        <input type="number" id="txt_edad" name="txt_edad" placeholder="EDAD" min="1" /><br><br>
+
+        <label for="txt_fecha_nac">Fecha de Nacimiento:</label>
+        <input type="date" id="txt_fecha_nac" name="txt_fecha_nac" /><br><br>
+
+        <label for="txt_sexo">Sexo:</label>
+        <input type="text" id="txt_sexo" name="txt_sexo" placeholder="SEXO" /><br><br>
+
+        <input type="submit" value="Enviar" />
+    </form>
+</body>
+</html>

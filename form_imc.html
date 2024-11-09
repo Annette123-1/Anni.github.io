@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>IMC</title>
+    <style>
+        h2 {
+            color: pink;
+        }
+        input[type="submit"] {
+            background-color: pink;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff66b2;
+        }
+    </style>
+    <script>
+        function validarFormularioTest() {
+            var peso = document.getElementById("txt_peso").value;
+            var altura = document.getElementById("txt_altura").value;
+            var calc_imc = document.getElementById("txt_calc_imc").value;
+
+
+
+            if (peso === "" || altura === "" || calc_imc === "") {
+                alert("Ingrese todos los datos.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>IMC</h2>
+    <form action="guardar_imc.php" method="POST" onsubmit="return validarFormularioImc();">
+        <label for="txt_peso">Peso:</label>
+        <input type="text" id="txt_peso" name="txt_peso" placeholder="PESO" /><br><br>
+
+        <label for="txt_altura">Altura:</label>
+        <input type="text" id="txt_altura" name="txt_altura" placeholder="ALTURA" /><br><br>
+
+        <label for="txt_calc_imc">Calcular:</label>
+        <input type="text" id="txt_calc_imc" name="txt_calc_imc" placeholder="CALCULAR" /><br><br>
+        
+        <input type="submit" value="Enviar" />
+    </form>
+</body>
+</html>

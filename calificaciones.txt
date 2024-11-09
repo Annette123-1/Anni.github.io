@@ -1,0 +1,13 @@
+create database mis_calificaciones;
+Use mis_calificaciones;
+Create table calificaciones(
+ clavep_matricula int not null primary key ,
+c_dawc_cbd int(10),
+c_fisica int(10),
+c_calculo int(10),
+c_ingles int(10),
+c_ciencias int(10));
+
+insert into calificaciones values(12345,'10','10','10','10','10');
+
+select * from calificaciones;

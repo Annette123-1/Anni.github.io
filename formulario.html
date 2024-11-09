@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Formulario Plan Salud</title>
+    <style>
+        h2 {
+            color: pink;
+        }
+        input[type="submit"] {
+            background-color: pink;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff66b2;
+        }
+    </style>
+    <script>
+        function validarFormulario() {
+            var dieta = document.getElementById("txt_dieta").value;
+            var recomendaciones = document.getElementById("txt_recomendaciones").value;
+
+            if (dieta === "" || recomendaciones === "") {
+                alert("Ingrese todos los datos.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Formulario para Plan de Salud</h2>
+    <form action="guardardatos.php" method="POST" onsubmit="return validarFormulario();">
+        <label for="txt_dieta">
+        <input type="text" id="txt_dieta" name="txt_dieta" placeholder="DIETA" /><br><br>
+
+        <label for="txt_recomendaciones">
+        <input type="text" id="txt_recomendaciones" name="txt_recomendaciones" placeholder="RECOMENDACIONES" /><br><br>
+
+        <input type="submit" value="Enviar" onclick="redirigirFormulario();" />
+    </form>
+</body>
+</html>
+        
